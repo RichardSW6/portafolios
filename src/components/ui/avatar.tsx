@@ -33,7 +33,8 @@ const Avatartelegram = React.forwardRef<
     {...props}
   />
 ))
-Avatar.displayName = AvatarPrimitive.Root.displayName
+
+Avatartelegram.displayName = "Avatartelegram"
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,

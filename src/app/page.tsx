@@ -229,18 +229,7 @@ export default function Page() {
                 <li className="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"><b>LinkedIn: </b>  <Link href="www.linkedin.com/in/ricardolopezb">José Ricardo López Bermudez</Link></li>
               </ul>
             </div>
-            <h2 className="pt-8 items-center justify-center text-center text-xl font-bold">Conoce a mi Bot de Telegram</h2>
-            <h2 className="mx-auto max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed items-center justify-center text-center">
-              Dale click en la imagen o escanea el QR..
-            </h2>
-          </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY} className="flex justify-center">
-            <Avatartelegram className="size-128">
-              <Link href={DATA.telegram} target="_blank" rel="noopener noreferrer">
-                <AvatarImage alt={DATA.name} src={DATA.telegramQR} />
-              </Link>
-              <AvatarFallback>{DATA.telegram}</AvatarFallback>
-            </Avatartelegram>
+          
           </BlurFade>
         </div>
       </section >

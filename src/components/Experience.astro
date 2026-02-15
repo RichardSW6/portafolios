@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Abril 2025 - Febrero 2026",
+    title: "Becario Soporte Primer Nivel",
+    company: "ATIO GROUP",
+    description:
+      "Durante mi desempeño en el cargo, resolví con éxito el 99% de las incidencias asignadas mediante ServiceNow, garantizando el cumplimiento estricto de los SLA y brindando un soporte remoto de alta calidad a usuarios finales y distribuidores de Facturagas. Mi labor incluyó el diagnóstico y solución de problemas técnicos complejos, como la configuración de IIS y la integración de aplicaciones de facturación en estaciones de servicio, además de la resolución de errores críticos en el envío de controles volumétricos para G500 y PEMEX. Asimismo, gestioné la administración de respaldos en servidores, la redacción de manuales técnicos especializados y lideré la migración estratégica de la plataforma de acceso remoto de TeamViewer a LogMeIn, optimizando la seguridad y eficiencia operativa del equipo de soporte.",
+  },
+  {
+    date: "Mayo 2025 - Marzo 2025",
+    title: "Becario Desarrollador de aplicaciones web",
+    company: "Mitsubishi Electric",
+    description:
+      "Lideré el ciclo completo de desarrollo y despliegue en producción de diversas soluciones web utilizando PHP, Bootstrap y bases de datos SQL, destacando la creación de una plataforma de exámenes que automatizó evaluaciones y redujo el tiempo de calificación en un 90%. Desarrollé módulos especializados para la gestión de inventarios y siniestros vehiculares, así como un sistema de auditorías con dashboards de reporteo que optimizó la carga operativa en un 30%. Adicionalmente, implementé sistemas para el control de cambios de TI bajo métricas de SLA y plataformas para la gestión de mantenimiento de infraestructura. Mi experiencia técnica se complementa con la administración de servidores, configuración de redes y seguridad electrónica, logrando mantener un índice del 99% en la resolución efectiva de incidencias de hardware y software.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

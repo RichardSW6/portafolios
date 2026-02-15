@@ -1,0 +1,33 @@
+---
+import AcademicItem from "./academicItem.astro";
+const AGADEMIC = [
+  {
+    date: "2022 - Actualidad",
+    title: "Licenciatura en Informática",
+    company: "Universidad Nacional Autónoma de México",
+    description:
+      "Especialización en desarrollo de software y gestión de proyectos tecnológicos. Participación en hackathons y proyectos de investigación sobre inteligencia artificial y desarrollo web.",
+    link: "https://www.cuautitlan.unam.mx/licenciaturas/informatica/",
+    linkText: "Saber más",
+  },
+  {
+    date: "2022 - 2023",
+    title: "Certificado Back-end",
+    company: "Oracle Next Education F2 T4 Back-end",
+    description:
+      "Formación técnica en lógica de programación, bases de datos y desarrollo de aplicaciones de escritorio y web. Proyecto final enfocado en un sistema de gestión escolar.",
+    link: "https://app.aluracursos.com/program/certificate/2599f7d0-dc0c-45e1-9a37-1de279a690eb?lang",
+    linkText: "Certificado",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    AGADEMIC.map((academic) => (
+      <li class="">
+        <AcademicItem {...academic} />
+      </li>
+    ))
+  }
+</ol>

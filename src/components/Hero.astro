@@ -3,6 +3,7 @@ const personalImageAlt = "Miguel Ángel";
 import Badge from "@/components/Badge.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
+import DownloadIcon from "@/components/icons/Download.astro";
 import SocialPill from "@/components/SocialPill.astro";
 ---
 
@@ -42,6 +43,13 @@ import SocialPill from "@/components/SocialPill.astro";
     <SocialPill href="https://www.linkedin.com/in/JRicardoLB">
       <LinkedInIcon class="size-4" />
       LinkedIn
+    </SocialPill>
+    <SocialPill
+      href="/CV_Ricardo_Lopez_Informatica.pdf"
+      download="CV_Ricardo_Lopez_Informatica.pdf"
+    >
+      <DownloadIcon class="size-4" />
+      Descargar CV
     </SocialPill>
   </nav>
 </div>

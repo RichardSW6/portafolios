@@ -1,5 +1,8 @@
 ---
-import LinkInline from "./LinkInline.astro"
+interface DetailSection {
+  section: string | null
+  items: string[]
+}
 
 interface Props {
   title: string
@@ -7,9 +10,13 @@ interface Props {
   description: string
   link?: string
   date: string
+  location?: string
+  details?: DetailSection[]
 }
 
-const { title, company, description, link, date } = Astro.props
+const { title, company, description, link, date, location, details } = Astro.props
+
+const modalId = `modal-${title.replace(/\s+/g, "-").toLowerCase()}`
 ---
 
 <div
@@ -17,24 +24,26 @@ const { title, company, description, link, date } = Astro.props
 >
   <div class="relative pb-12 md:col-span-2">
     <div class="sticky top-0">
-      <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl"
-        >&bull;</span
-      >
-
+      <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">&bull;</span>
       <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
       <h4 class="font-semibold text-xl text-gray-600 dark:text-white">{company}</h4>
       <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">{date}</time>
     </div>
   </div>
+
   <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
     {description}
+
     {
-      link && (
-        <LinkInline href={link}>
-          Saber más{" "}
+      details && details.length > 0 && (
+        <button
+          data-modal={modalId}
+          class="saber-mas-btn mt-3 inline-flex items-center gap-1 text-lg font-medium text-yellow-400 hover:text-yellow-300 transition-colors duration-200 w-fit"
+        >
+          Saber más
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5 icon icon-tabler icon-tabler-chevron-right"
+            class="w-5"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -44,13 +53,177 @@ const { title, company, description, link, date } = Astro.props
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 6l6 6l-6 6" />
-            </>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 6l6 6l-6 6" />
           </svg>
-        </LinkInline>
+        </button>
+      )
+    }
+
+    {
+      link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-yellow-400 font-semibold hover:text-yellow-300 transition-colors duration-200 w-fit"
+        >
+          Ver proyecto
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 6l6 6l-6 6" />
+          </svg>
+        </a>
       )
     }
   </div>
 </div>
+
+<!-- Modal -->
+{
+  details && details.length > 0 && (
+    <div
+      id={modalId}
+      class="experience-modal fixed inset-0 z-50 flex items-center justify-center p-4 hidden"
+    >
+      <!-- Backdrop -->
+      <div class="modal-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+      <!-- Modal content -->
+      <div class="modal-content relative z-10 w-full max-w-2xl rounded-2xl bg-white dark:bg-gray-900 shadow-2xl border border-yellow-400/20 flex flex-col max-h-[85vh]">
+        
+        <!-- Header fijo -->
+        <div class="flex items-start justify-between gap-4 p-6 pb-4 border-b border-yellow-400/20 flex-shrink-0">
+          <div>
+            <h3 class="text-xl font-bold text-yellow-400">{company} | {title}</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+              {location && <span>{location} · </span>}{date}
+            </p>
+          </div>
+          <button
+            class="modal-close text-gray-400 hover:text-yellow-400 transition-colors duration-200 mt-0.5 flex-shrink-0"
+            aria-label="Cerrar"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6L6 18" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cuerpo scrolleable -->
+        <div class="overflow-y-auto p-6 pt-4 flex flex-col gap-5">
+          {details.map((block) => (
+            <div class="flex flex-col gap-2">
+              {block.section && (
+                <h4 class="text-sm font-bold text-yellow-400 uppercase tracking-wide">
+                  {block.section}
+                </h4>
+              )}
+              <ul class="flex flex-col gap-2">
+                {block.items.map((item) => (
+                  <li class="flex items-start gap-3 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll<HTMLButtonElement>(".saber-mas-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modalId = btn.getAttribute("data-modal")
+        if (!modalId) return
+        const modal = document.getElementById(modalId)
+        if (!modal) return
+        modal.classList.remove("hidden")
+        requestAnimationFrame(() => modal.classList.add("modal-visible"))
+        document.body.style.overflow = "hidden"
+      })
+    })
+
+    document.querySelectorAll<HTMLElement>(".experience-modal").forEach((modal) => {
+      const closeModal = () => {
+        modal.classList.remove("modal-visible")
+        setTimeout(() => {
+          modal.classList.add("hidden")
+          document.body.style.overflow = ""
+        }, 200)
+      }
+      modal.querySelector(".modal-backdrop")?.addEventListener("click", closeModal)
+      modal.querySelector(".modal-close")?.addEventListener("click", closeModal)
+    })
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll<HTMLElement>(".experience-modal:not(.hidden)").forEach((modal) => {
+          modal.classList.remove("modal-visible")
+          setTimeout(() => {
+            modal.classList.add("hidden")
+            document.body.style.overflow = ""
+          }, 200)
+        })
+      }
+    })
+  })
+</script>
+
+<style>
+  .experience-modal {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .experience-modal.modal-visible {
+    opacity: 1;
+  }
+  .modal-content {
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    opacity: 0;
+  }
+  .experience-modal.modal-visible .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  .saber-mas-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .saber-mas-btn svg {
+    transition: transform 0.2s ease;
+  }
+  .saber-mas-btn:hover svg {
+    transform: translateX(3px);
+  }
+</style>

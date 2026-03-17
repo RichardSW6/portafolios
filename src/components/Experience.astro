@@ -1,19 +1,117 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+
 const EXPERIENCE = [
   {
-    date: "Abril 2025 - Febrero 2026",
+    date: "Abril 2025 - Marzo 2026",
     title: "Becario Soporte Primer Nivel",
     company: "ATIO GROUP",
+    location: "Ciudad de México",
     description:
-      "Durante mi desempeño en el cargo, resolví con éxito el 99% de las incidencias asignadas mediante ServiceNow, garantizando el cumplimiento estricto de los SLA y brindando un soporte remoto de alta calidad a usuarios finales y distribuidores de Facturagas. Mi labor incluyó el diagnóstico y solución de problemas técnicos complejos, como la configuración de IIS y la integración de aplicaciones de facturación en estaciones de servicio, además de la resolución de errores críticos en el envío de controles volumétricos para G500 y PEMEX. Asimismo, gestioné la administración de respaldos en servidores, la redacción de manuales técnicos especializados y lideré la migración estratégica de la plataforma de acceso remoto de TeamViewer a LogMeIn, optimizando la seguridad y eficiencia operativa del equipo de soporte.",
+      "Brindé soporte técnico de primer nivel resolviendo incidencias mediante herramientas como ServiceNow y Odoo, asegurando el cumplimiento de SLA. Participé en la configuración, instalación y mantenimiento de sistemas de facturación, así como en la documentación y mejora de procesos para optimizar la operación de los clientes.",
+    details: [
+      {
+        section: null,
+        items: [
+          "Resolví el 98% de incidencias mediante ServiceNow y Odoo, asegurando cumplimiento de SLA y continuidad operativa.",
+          "Gestioné tickets de soporte, reduciendo tiempos de resolución en un 40%.",
+          "Administré el correo de soporte de Facturagas, mejorando tiempos de atención en un 40%.",
+          "Coordiné con distribuidores, aumentando la eficiencia operativa en un 35%.",
+        ],
+      },
+      {
+        section: "Soporte a sistemas de facturación",
+        items: [
+          "Diagnostiqué y resolví errores en plataformas web de facturación, reduciendo caídas del sistema en un 30%.",
+          "Configuré y validé servicios en IIS, mejorando la estabilidad de aplicaciones en un 25%.",
+          "Gestioné apertura y validación de puertos, reduciendo problemas de conectividad en un 35%.",
+          "Verifiqué configuraciones críticas, disminuyendo errores de facturación en un 20%.",
+        ],
+      },
+      {
+        section: "Documentación y mejora de procesos",
+        items: [
+          "Redacté manuales técnicos y de usuario, reduciendo incidencias repetitivas en un 30%.",
+        ],
+      },
+      {
+        section: "Implementación de sistemas",
+        items: [
+          "Instalé y configuré sistemas ControlGas en servidores, logrando implementaciones exitosas en el 100% de los casos asignados.",
+          "Realicé validaciones post-instalación, reduciendo errores en un 30%.",
+          "Configuré entornos productivos, mejorando la estabilidad del sistema en un 25%.",
+        ],
+      },
+    ],
   },
   {
-    date: "Mayo 2025 - Marzo 2025",
+    date: "Mayo 2024 - Marzo 2025",
     title: "Becario Desarrollador de aplicaciones web",
     company: "Mitsubishi Electric",
+    location: "Estado de México",
     description:
-      "Lideré el ciclo completo de desarrollo y despliegue en producción de diversas soluciones web utilizando PHP, Bootstrap y bases de datos SQL, destacando la creación de una plataforma de exámenes que automatizó evaluaciones y redujo el tiempo de calificación en un 90%. Desarrollé módulos especializados para la gestión de inventarios y siniestros vehiculares, así como un sistema de auditorías con dashboards de reporteo que optimizó la carga operativa en un 30%. Adicionalmente, implementé sistemas para el control de cambios de TI bajo métricas de SLA y plataformas para la gestión de mantenimiento de infraestructura. Mi experiencia técnica se complementa con la administración de servidores, configuración de redes y seguridad electrónica, logrando mantener un índice del 99% en la resolución efectiva de incidencias de hardware y software.",
+      "Desarrollé aplicaciones web internas utilizando PHP, SQL y Bootstrap, participando en todo el ciclo de desarrollo desde el levantamiento de requerimientos hasta la implementación en producción. Implementé soluciones para digitalizar procesos, automatizar tareas y generar indicadores (KPIs), además de brindar soporte técnico a usuarios y configurar equipos de trabajo.",
+    details: [
+      {
+        section: null,
+        items: [
+          "Desarrollé aplicaciones web internas utilizando PHP, Bootstrap y SQL, logrando la digitalización de procesos manuales en múltiples áreas y reduciendo tiempos operativos hasta en un 60%.",
+          "Gestioné el 100% del ciclo de desarrollo: levantamiento de requerimientos, análisis funcional, diseño de bases de datos relacionales, desarrollo, pruebas y despliegue en producción.",
+          "Realicé levantamiento de requerimientos con stakeholders, mejorando la precisión funcional de los sistemas en un 45% al reducir retrabajos.",
+          "Coordiné reuniones quincenales con áreas de negocio, reduciendo desviaciones de proyecto en un 30%.",
+        ],
+      },
+      {
+        section: "Sistema de auditorías (Ciberseguridad)",
+        items: [
+          "Diseñé e implementé una solución que digitalizó el 100% del proceso de auditorías, eliminando registros manuales.",
+          "Reduje en un 60% el tiempo de captura y seguimiento de auditorías mediante formularios digitales y automatización de procesos.",
+          "Incrementé en un 40% el cumplimiento de auditorías programadas mediante notificaciones automáticas por correo.",
+          "Desarrollé dashboards con KPIs que permitieron identificar áreas críticas, mejorando el desempeño de usuarios en un 25%.",
+          "Implementé almacenamiento estructurado de auditorías, mejorando la trazabilidad y consulta histórica en un 50%.",
+        ],
+      },
+      {
+        section: "Plataforma de exámenes (Capacitación) – Trabajo en equipo",
+        items: [
+          "Participé en el desarrollo de una plataforma de evaluación digital, incrementando en un 70% la eficiencia en procesos de evaluación.",
+          "Implementé lógica de calificación automática, reduciendo el tiempo de revisión manual en un 70%.",
+          "Diseñé módulos de gestión de usuarios (alumnos/docentes), mejorando la organización académica en un 40%.",
+          "Generé reportes en PDF automatizados, reduciendo el tiempo administrativo en un 50%.",
+          "Implementé KPIs de desempeño, permitiendo mejorar el rendimiento promedio de los alumnos en un 20%.",
+          "Desarrollé funcionalidades de seguimiento académico, aumentando la visibilidad del progreso en un 45%.",
+        ],
+      },
+      {
+        section: "Sistema de inventario de vehículos",
+        items: [
+          "Desarrollé un sistema para gestión de vehículos, mejorando el control operativo en un 50%.",
+          "Implementé notificaciones automáticas de mantenimiento, reduciendo incidencias mecánicas en un 30%.",
+          "Diseñé control de estados de vehículos, mejorando la disponibilidad y uso eficiente en un 35%.",
+          "Digitalicé formatos administrativos, reduciendo el uso de papel en un 80%.",
+          "Generé documentos PDF automatizados, reduciendo tiempos administrativos en un 40%.",
+        ],
+      },
+      {
+        section: "Sistema de control de cambios (TI)",
+        items: [
+          "Diseñé una solución para la gestión de cambios en TI, optimizando el proceso en un 55%.",
+          "Implementé flujos de aprobación jerárquicos, reduciendo errores operativos en un 35%.",
+          "Automaticé asignación de tareas, mejorando la eficiencia del equipo en un 30%.",
+          "Integré notificaciones automáticas, reduciendo retrasos en implementación en un 25%.",
+          "Implementé historial de cambios, mejorando la trazabilidad en un 60%.",
+        ],
+      },
+      {
+        section: "Soporte técnico",
+        items: [
+          "Brindé soporte técnico a usuarios, resolviendo incidencias con una tasa de efectividad superior al 95%.",
+          "Configuré equipos para nuevos empleados, reduciendo tiempos de onboarding en un 30%.",
+          "Realicé mantenimiento preventivo y correctivo, disminuyendo fallas recurrentes en un 25%.",
+          "Configuré salas de juntas, mejorando la disponibilidad operativa en un 20%.",
+        ],
+      },
+    ],
   },
 ]
 ---

@@ -1,26 +1,67 @@
 ---
 const currentYear = new Date().getFullYear();
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import MailIcon from "@/components/icons/Mail.astro";
 ---
 
 <footer
-  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+  class="opacity-80 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl px-4 md:px-6 mb-10"
 >
   <div
-    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+    class="border-t border-gray-200 dark:border-white/10 pt-8 pb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-sm text-gray-600 dark:text-white/70"
   >
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
-    >
-      <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
-      </li>
-      <li class="hidden md:block">
-        <a
-          id="contacto"
-          href="mailto:josericardo_lopezb@hotmail.com"
-          class="hover:underline">Contacto</a
-        >
-      </li>
-    </ul>
+    <!-- Nombre y copyright -->
+    <div class="flex flex-col gap-1">
+      <span class="font-semibold text-gray-800 dark:text-white text-base"
+        >Ricardo Lopez</span
+      >
+      <span>Desarrollador Web &amp; Soporte Técnico</span>
+      <span class="text-xs text-gray-400 dark:text-white/40"
+        >&copy; {currentYear} Ricardo Lopez. Todos los derechos reservados.</span
+      >
+    </div>
+
+    <!-- Links de navegación -->
+    <nav>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 font-medium">
+        <li>
+          <a href="/#sobre-mi" class="hover:underline hover:text-yellow-500 transition-colors"
+            >Sobre mí</a
+          >
+        </li>
+        <li>
+          <a href="/#experiencia" class="hover:underline hover:text-yellow-500 transition-colors"
+            >Experiencia</a
+          >
+        </li>
+        <li>
+          <a href="/#proyectos" class="hover:underline hover:text-yellow-500 transition-colors"
+            >Proyectos</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Redes sociales / Contacto -->
+    <div class="flex items-center gap-4">
+      <a
+        href="mailto:josericardo_lopezb@hotmail.com"
+        title="Enviar correo"
+        class="flex items-center gap-1.5 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors"
+      >
+        <MailIcon class="size-4" />
+        <span>Correo</span>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/JRicardoLB"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Perfil de LinkedIn"
+        class="flex items-center gap-1.5 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors"
+      >
+        <LinkedInIcon class="size-4" />
+        <span>LinkedIn</span>
+      </a>
+    </div>
   </div>
 </footer>
